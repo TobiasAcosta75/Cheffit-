@@ -11,7 +11,8 @@
     "test:db": "vitest run -c vitest.db.config.ts",
     "typecheck": "tsc --noEmit",
     "db:push": "supabase db push --db-url $SUPABASE_DB_URL",
-    "seed:build": "tsx scripts/build-food-seed.ts"
+    "seed:build": "tsx scripts/build-food-seed.ts",
+    "dev:user": "tsx scripts/create-dev-user.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.7",
