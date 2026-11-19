@@ -7,6 +7,9 @@ const GOAL_PARAMS: Record<Goal, { protein: number; fat: number; kcalFactor: numb
   bulk: { protein: 1.8, fat: 1.0, kcalFactor: 1.1 },
 };
 
+/** Definición con poco margen calórico: extremos bajos de los rangos del diseño (6.2). */
+const CUT_LOW_BUDGET = { protein: 2.0, fat: 0.8 };
+
 /** Piso de carbohidratos base (g/kg) para que el cálculo automático nunca dé valores absurdos. */
 const MIN_CARBS_G_PER_KG = 1.0;
 const TRAINING_CARB_FACTOR = 1.1;
@@ -23,9 +26,14 @@ export function autoStageRules(input: {
   goal: Goal;
 }): StageRules {
   const { sex, weightKg: w, heightCm, ageYears, activity, goal } = input;
-  const p = GOAL_PARAMS[goal];
-  const targetKcal = tdee(bmrMifflin(sex, w, heightCm, ageYears), activity) * p.kcalFactor;
-  const carbsBase = Math.max(MIN_CARBS_G_PER_KG, (targetKcal - 4 * p.protein * w - 9 * p.fat * w) / 4 / w);
+  const params = GOAL_PARAMS[goal];
+  const targetKcal = tdee(bmrMifflin(sex, w, heightCm, ageYears), activity) * params.kcalFactor;
+  const carbsFor = (p: { protein: number; fat: number }) => (targetKcal - 4 * p.protein * w - 9 * p.fat * w) / 4 / w;
+
+  // En definición, si proteína y grasa altas no dejan lugar a los carbos mínimos (gasto bajo),
+  // se usan los mínimos del rango (P 2,0 / G 0,8) para que el plan siga siendo un déficit.
+  const p = goal === 'cut' && carbsFor(params) < MIN_CARBS_G_PER_KG ? CUT_LOW_BUDGET : params;
+  const carbsBase = Math.max(MIN_CARBS_G_PER_KG, carbsFor(p));
   return {
     proteinGPerKg: p.protein,
     fatGPerKg: p.fat,

@@ -1,5 +1,7 @@
 import { describe, expect, test } from 'vitest';
 import { activeStage, autoStageRules } from '@/domain/stages';
+import { bmrMifflin, tdee } from '@/domain/energy';
+import { dayTargets } from '@/domain/targets';
 import type { Stage } from '@/domain/types';
 
 describe('autoStageRules', () => {
@@ -13,6 +15,16 @@ describe('autoStageRules', () => {
     const r = autoStageRules({ sex: 'female', weightKg: 140, heightCm: 155, ageYears: 60, activity: 'sedentary', goal: 'cut' });
     expect(r.carbsRestGPerKg).toBe(0.9);
     expect(r.carbsTrainingGPerKg).toBe(1.1);
+  });
+
+  test('definición con gasto bajo usa los mínimos del rango (P 2,0 / G 0,8) y queda en déficit', () => {
+    const person = { sex: 'male' as const, weightKg: 100, heightCm: 175, ageYears: 40, activity: 'sedentary' as const };
+    const r = autoStageRules({ ...person, goal: 'cut' });
+    expect(r.proteinGPerKg).toBe(2.0);
+    expect(r.fatGPerKg).toBe(0.8);
+    const gasto = tdee(bmrMifflin('male', 100, 175, 40), 'sedentary');
+    expect(dayTargets(r, 100, 'training').kcal).toBeLessThan(gasto * 0.9);
+    expect(dayTargets(r, 100, 'rest').kcal).toBeLessThan(gasto * 0.9);
   });
 
   test('volumen usa proteína 1,8 y más carbos que mantenimiento', () => {
