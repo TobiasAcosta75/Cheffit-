@@ -1,0 +1,159 @@
+name,category,fdc_id,kcal_100,protein_100,carbs_100,fat_100,fiber_100,source,measures
+Pechuga de pollo (cruda),carnes,171077,,,,,,usda,1 pechuga mediana:174|1/2 pechuga:118
+Pechuga de pollo (asada),carnes,171477,,,,,,usda,1/2 pechuga cocida:86|1 taza en cubos:140
+Muslo de pollo sin piel (crudo),carnes,173627,,,,,,usda,1 muslo sin piel:149
+Carne picada común 80/20 (cruda),carnes,174036,,,,,,usda,1 hamburguesa casera:113
+Carne picada especial 90/10 (cruda),carnes,174030,,,,,,usda,1 hamburguesa casera:113
+Carne picada especial 90/10 (cocida),carnes,171793,,,,,,usda,1 hamburguesa cocida:85
+Carne picada magra 95/5 (cruda),carnes,171790,,,,,,usda,1 hamburguesa casera:113
+Nalga / bola de lomo (cruda),carnes,171759,,,,,,usda,1 bife:150
+Peceto (crudo),carnes,171764,,,,,,usda,1 bife:151
+Lomo (crudo),carnes,171769,,,,,,usda,1 medallón:172
+Cuadril (crudo),carnes,174695,,,,,,usda,1 bife:186
+Vacío (crudo),carnes,169563,,,,,,usda,1 porción:188
+Asado de tira (crudo),carnes,169439,,,,,,usda,1 tira:250
+Hígado vacuno (crudo),carnes,169451,,,,,,usda,1 bife:113
+Lomo de cerdo (crudo),carnes,168249,,,,,,usda,1 medallón:113
+Bondiola de cerdo (cruda),carnes,167849,,,,,,usda,1 bife:150
+Jamón cocido,carnes,173864,,,,,,usda,1 feta:28
+Pechuga de pavo (cruda),carnes,174515,,,,,,usda,1 porción:113
+Salchicha de viena,carnes,173862,,,,,,usda,1 salchicha:49
+Atún al natural (escurrido),pescados,173709,,,,,,usda,1 lata escurrida:165
+Atún en aceite (escurrido),pescados,173708,,,,,,usda,1 lata escurrida:171
+Merluza / pescado blanco (crudo),pescados,173713,,,,,,usda,1 filet:92
+Salmón de criadero (crudo),pescados,175167,,,,,,usda,1 porción:150
+Sardinas en aceite (escurridas),pescados,175139,,,,,,usda,1 lata:92
+Camarones (crudos),pescados,175179,,,,,,usda,1 porción:85
+Huevo entero,huevos,171287,,,,,,usda,1 huevo grande:50|1 huevo extra grande:56
+Huevo duro,huevos,173424,,,,,,usda,1 huevo grande:50
+Clara de huevo,huevos,172183,,,,,,usda,1 clara:33
+Yema de huevo,huevos,172184,,,,,,usda,1 yema:17
+Leche entera,lacteos,171265,,,,,,usda,1 taza:244|1 vaso:200|1 cucharada:15
+Leche descremada,lacteos,171269,,,,,,usda,1 taza:245|1 vaso:200
+Leche parcialmente descremada 1%,lacteos,170872,,,,,,usda,1 taza:244|1 vaso:200
+Yogur natural entero,lacteos,171284,,,,,,usda,1 pote:170|1 taza:245
+Yogur natural descremado,lacteos,170887,,,,,,usda,1 pote:170|1 taza:245
+Yogur griego natural descremado,lacteos,170894,,,,,,usda,1 pote:170
+Queso mozzarella,lacteos,170845,,,,,,usda,1 feta:28|1 taza rallado:112
+Queso rallado tipo parmesano,lacteos,170848,,,,,,usda,1 cucharada:5|1 porción:28
+Queso cottage descremado,lacteos,173417,,,,,,usda,1/2 taza:113|1 taza:226
+Ricota semidescremada,lacteos,171248,,,,,,usda,1/2 taza:124|1 cucharada:15
+Queso crema,lacteos,173418,,,,,,usda,1 cucharada:14.5
+Queso fresco,lacteos,172223,,,,,,usda,1 porción:30|1 taza desmenuzado:122
+Queso cheddar,lacteos,170899,,,,,,usda,1 feta:21
+Queso tipo pategrás / gruyere,lacteos,171251,,,,,,usda,1 feta:28
+Queso provolone,lacteos,170850,,,,,,usda,1 feta:28
+Manteca,grasas,173410,,,,,,usda,1 cucharada:14.2|1 rulo:5
+Crema de leche,lacteos,170859,,,,,,usda,1 cucharada:15|1 taza:238
+Dulce de leche,dulces,173461,,,,,,usda,1 cucharada:19
+Proteína de suero (whey),suplementos,173180,,,,,,usda,1 scoop:30
+Arroz blanco (crudo),cereales,168877,,,,,,usda,1 taza:185|1 porción:80
+Arroz blanco (cocido),cereales,168878,,,,,,usda,1 taza:158
+Arroz integral (crudo),cereales,169703,,,,,,usda,1 taza:185|1 porción:80
+Arroz integral (cocido),cereales,169704,,,,,,usda,1 taza:202
+Avena arrollada,cereales,173904,,,,,,usda,1 taza:81|1/3 taza:27|1 cucharada:6
+Fideos secos,cereales,169736,,,,,,usda,1 porción:80|1 taza de mostachol:95
+Fideos (cocidos),cereales,169737,,,,,,usda,1 taza de spaghetti:124
+Fideos integrales secos,cereales,169738,,,,,,usda,1 porción:80
+Harina de trigo 000,cereales,168894,,,,,,usda,1 taza:125|1 cucharada:8
+Polenta (seca),cereales,168867,,,,,,usda,1 taza:157|1 porción:60
+Quinoa (cruda),cereales,168874,,,,,,usda,1 taza:170|1 porción:60
+Quinoa (cocida),cereales,168917,,,,,,usda,1 taza:185
+Copos de maíz sin azúcar,cereales,174648,,,,,,usda,1 taza:28
+Granola,cereales,171646,,,,,,usda,1 taza:122|1/4 taza:30
+Pan francés,panificados,172675,,,,,,usda,1 flautita:60|1 rodaja:30
+Pan lactal blanco,panificados,174924,,,,,,usda,1 rebanada:29
+Pan lactal integral,panificados,172688,,,,,,usda,1 rebanada:32
+Tortilla de trigo (rapiditas),panificados,175037,,,,,,usda,1 tortilla:48
+Galletas de arroz,panificados,170250,,,,,,usda,1 galleta:9
+Galletitas de agua,panificados,172746,,,,,,usda,5 galletitas:15
+Medialuna de manteca,panificados,174987,,,,,,usda,1 medialuna:42
+Papa (cruda),tuberculos,170026,,,,,,usda,1 papa mediana:213|1 papa chica:170
+Papa hervida,tuberculos,170440,,,,,,usda,1 papa mediana:167|1/2 taza:78
+Batata (cruda),tuberculos,168482,,,,,,usda,1 batata mediana:130|1 taza en cubos:133
+Batata hervida,tuberculos,168484,,,,,,usda,1 batata mediana:151
+Choclo (crudo),tuberculos,169998,,,,,,usda,1 choclo mediano:102|1 taza de granos:145
+Mandioca (cruda),tuberculos,169985,,,,,,usda,1 taza:206
+Lentejas (secas),legumbres,172420,,,,,,usda,1 taza:192|1 cucharada:12
+Lentejas (cocidas),legumbres,172421,,,,,,usda,1 taza:198|1 cucharada:12.3
+Garbanzos (secos),legumbres,173756,,,,,,usda,1 taza:200
+Garbanzos (cocidos),legumbres,173757,,,,,,usda,1 taza:164
+Porotos negros (cocidos),legumbres,173735,,,,,,usda,1 taza:172
+Porotos alubia (cocidos),legumbres,175203,,,,,,usda,1 taza:179|1 cucharada:11.2
+Arvejas congeladas,legumbres,170016,,,,,,usda,1 taza:134
+Tofu firme,legumbres,172475,,,,,,usda,1/2 taza:126|1/4 de bloque:81
+Hummus,legumbres,174289,,,,,,usda,1 cucharada:15
+Banana,frutas,173944,,,,,,usda,1 banana mediana:118|1 banana chica:101
+Manzana,frutas,171688,,,,,,usda,1 manzana mediana:182
+Naranja,frutas,169097,,,,,,usda,1 naranja mediana:131
+Mandarina,frutas,169105,,,,,,usda,1 mandarina mediana:88
+Frutillas,frutas,167762,,,,,,usda,1 taza:144
+Arándanos,frutas,171711,,,,,,usda,1 taza:148
+Pera,frutas,169118,,,,,,usda,1 pera mediana:178
+Durazno,frutas,169928,,,,,,usda,1 durazno mediano:150
+Kiwi,frutas,168153,,,,,,usda,1 kiwi:69
+Uvas,frutas,174683,,,,,,usda,10 uvas:49|1 taza:151
+Ananá,frutas,169124,,,,,,usda,1 rodaja:84|1 taza en trozos:165
+Sandía,frutas,167765,,,,,,usda,1 tajada:286|1 taza en cubos:152
+Melón,frutas,169092,,,,,,usda,1 taza en cubos:160
+Limón (jugo y pulpa),frutas,167746,,,,,,usda,1 limón:58
+Palta,frutas,171705,,,,,,usda,1 palta:201|1/2 palta:100
+Mango,frutas,169910,,,,,,usda,1 mango sin cáscara:336
+Ciruela,frutas,169949,,,,,,usda,1 ciruela:66
+Pasas de uva,frutas,168165,,,,,,usda,1 cajita:14|1 cucharada:9
+Dátiles,frutas,168191,,,,,,usda,1 dátil:24
+Lechuga,verduras,169249,,,,,,usda,1 taza:36|1 hoja grande:24
+Tomate,verduras,170457,,,,,,usda,1 tomate perita:62|1 taza picado:180
+Cebolla,verduras,170000,,,,,,usda,1 cebolla grande:150|1 cucharada picada:10
+Zanahoria,verduras,170393,,,,,,usda,1 zanahoria grande:72|1 taza rallada:110
+Zapallo anco,verduras,169295,,,,,,usda,1 taza en cubos:140
+Zapallito / zucchini,verduras,169291,,,,,,usda,1 zucchini mediano:196
+Berenjena,verduras,169228,,,,,,usda,1 taza en cubos:82
+Morrón rojo,verduras,170108,,,,,,usda,1 morrón grande:164|1 cucharada:9.3
+Morrón verde,verduras,170427,,,,,,usda,1 morrón grande:164
+Brócoli,verduras,170379,,,,,,usda,1 taza picado:91
+Coliflor,verduras,169986,,,,,,usda,1 taza picada:107|1 ramito:13
+Espinaca,verduras,168462,,,,,,usda,1 taza:30|1 paquete:284
+Acelga,verduras,169991,,,,,,usda,1 taza:36|1 hoja:48
+Pepino,verduras,168409,,,,,,usda,1 pepino:301|1/2 taza en rodajas:52
+Repollo,verduras,169975,,,,,,usda,1 taza picado:89
+Champiñones,verduras,169251,,,,,,usda,1 taza fileteados:70|1 champiñón mediano:18
+Remolacha,verduras,169145,,,,,,usda,1 remolacha:82
+Chauchas,verduras,169961,,,,,,usda,1 taza:100
+Ajo,verduras,169230,,,,,,usda,1 diente:3
+Rúcula,verduras,169387,,,,,,usda,1/2 taza:10
+Apio,verduras,169988,,,,,,usda,1 tallo grande:64
+Puré de tomate,verduras,170460,,,,,,usda,1 taza:250|1 cucharada:15
+Tomate en lata,verduras,170051,,,,,,usda,1 lata:190|1 taza:240
+Aceite de oliva,grasas,171413,,,,,,usda,1 cucharada:13.5|1 cucharadita:4.5
+Aceite de girasol,grasas,171025,,,,,,usda,1 cucharada:13.6|1 cucharadita:4.5
+Mayonesa,grasas,171009,,,,,,usda,1 cucharada:13.8|1 sobre:10
+Mayonesa light,grasas,171443,,,,,,usda,1 cucharada:15
+Aceitunas negras,grasas,169094,,,,,,usda,1 aceituna:4.4
+Aceitunas verdes,grasas,169096,,,,,,usda,1 aceituna:2.7
+Maní,frutos_secos,172430,,,,,,usda,1 puñado:28
+Mantequilla de maní,frutos_secos,172470,,,,,,usda,1 cucharada:16
+Almendras,frutos_secos,170567,,,,,,usda,1 puñado:28
+Nueces,frutos_secos,170187,,,,,,usda,1 puñado:28|1 mitad:2
+Castañas de cajú,frutos_secos,170162,,,,,,usda,1 puñado:28
+Semillas de chía,frutos_secos,170554,,,,,,usda,1 cucharada:12
+Semillas de lino,frutos_secos,169414,,,,,,usda,1 cucharada:10.3
+Semillas de girasol,frutos_secos,170562,,,,,,usda,1 cucharada:9
+Semillas de sésamo,frutos_secos,170150,,,,,,usda,1 cucharada:9
+Azúcar,dulces,169655,,,,,,usda,1 cucharadita:4.2|1 sobre:2.8
+Miel,dulces,169640,,,,,,usda,1 cucharada:21
+Mermelada,dulces,169641,,,,,,usda,1 cucharada:20
+Cacao amargo en polvo,dulces,169593,,,,,,usda,1 cucharada:5.4
+Chocolate amargo 70-85%,dulces,170273,,,,,,usda,1 cuadradito:10|1 barra:101
+Helado de crema americana,dulces,167575,,,,,,usda,1 bocha:66
+Ketchup,condimentos,168556,,,,,,usda,1 cucharada:17|1 sobre:9
+Mostaza,condimentos,172234,,,,,,usda,1 cucharadita:5
+Salsa de soja,condimentos,174278,,,,,,usda,1 cucharada:18
+Gaseosa cola,bebidas,174852,,,,,,usda,1 lata:370|1 vaso:250
+Jugo de naranja exprimido,bebidas,169098,,,,,,usda,1 vaso:248
+Cerveza,bebidas,168746,,,,,,usda,1 lata:356|1 vaso:250
+Vino tinto,bebidas,173190,,,,,,usda,1 copa:147
+Café,bebidas,171890,,,,,,usda,1 taza:237
+Leche de almendras sin azúcar,bebidas,174832,,,,,,usda,1 taza:262
+Papas fritas de paquete,snacks,169677,,,,,,usda,1 porción:28
+Pizza de muzzarella,snacks,170317,,,,,,usda,1 porción:81

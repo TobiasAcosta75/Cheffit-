@@ -1,0 +1,66 @@
+import { describe, expect, test } from 'vitest';
+import { activeStage, autoStageRules } from '@/domain/stages';
+import { bmrMifflin, tdee } from '@/domain/energy';
+import { dayTargets } from '@/domain/targets';
+import type { Stage } from '@/domain/types';
+
+describe('autoStageRules', () => {
+  test('definición hombre 80 kg moderado', () => {
+    expect(
+      autoStageRules({ sex: 'male', weightKg: 80, heightCm: 180, ageYears: 30, activity: 'moderate', goal: 'cut' }),
+    ).toEqual({ proteinGPerKg: 2.2, fatGPerKg: 1.0, carbsTrainingGPerKg: 2.7, carbsRestGPerKg: 2.2 });
+  });
+
+  test('piso de 1,0 g/kg de carbos con gasto bajo', () => {
+    const r = autoStageRules({ sex: 'female', weightKg: 140, heightCm: 155, ageYears: 60, activity: 'sedentary', goal: 'cut' });
+    expect(r.carbsRestGPerKg).toBe(0.9);
+    expect(r.carbsTrainingGPerKg).toBe(1.1);
+  });
+
+  test('definición con gasto bajo usa los mínimos del rango (P 2,0 / G 0,8) y queda en déficit', () => {
+    const person = { sex: 'male' as const, weightKg: 100, heightCm: 175, ageYears: 40, activity: 'sedentary' as const };
+    const r = autoStageRules({ ...person, goal: 'cut' });
+    expect(r.proteinGPerKg).toBe(2.0);
+    expect(r.fatGPerKg).toBe(0.8);
+    const gasto = tdee(bmrMifflin('male', 100, 175, 40), 'sedentary');
+    expect(dayTargets(r, 100, 'training').kcal).toBeLessThan(gasto * 0.9);
+    expect(dayTargets(r, 100, 'rest').kcal).toBeLessThan(gasto * 0.9);
+  });
+
+  test('volumen usa proteína 1,8 y más carbos que mantenimiento', () => {
+    const base = { sex: 'male' as const, weightKg: 80, heightCm: 180, ageYears: 30, activity: 'moderate' as const };
+    const maintain = autoStageRules({ ...base, goal: 'maintain' });
+    const bulk = autoStageRules({ ...base, goal: 'bulk' });
+    expect(bulk.proteinGPerKg).toBe(1.8);
+    expect(bulk.carbsTrainingGPerKg).toBeGreaterThan(maintain.carbsTrainingGPerKg);
+  });
+});
+
+function stage(id: string, startDate: string, endDate: string | null = null, createdAt = `${startDate}T12:00:00Z`): Stage {
+  return {
+    id, name: id, startDate, endDate, goal: 'cut', mode: 'manual', notes: null, createdAt,
+    proteinGPerKg: 2.2, carbsTrainingGPerKg: 1.8, carbsRestGPerKg: 1.5, fatGPerKg: 1,
+  };
+}
+
+describe('activeStage', () => {
+  const A = stage('A', '2026-09-01');
+  const B = stage('B', '2026-11-01');
+  const C = stage('C', '2026-12-01');
+
+  test('elige la vigente más reciente', () => {
+    expect(activeStage([A, B, C], '2026-11-18')?.id).toBe('B');
+  });
+  test('ninguna vigente', () => {
+    expect(activeStage([C], '2026-11-18')).toBeNull();
+  });
+  test('con el mismo inicio gana la creada más tarde, sin importar el orden', () => {
+    const onboarding = stage('ONB', '2026-11-18', null, '2026-11-18T10:00:00Z');
+    const nutri = stage('NUTRI', '2026-11-18', null, '2026-11-18T15:00:00Z');
+    expect(activeStage([onboarding, nutri], '2026-11-18')?.id).toBe('NUTRI');
+    expect(activeStage([nutri, onboarding], '2026-11-18')?.id).toBe('NUTRI');
+  });
+  test('etapa cerrada no cuenta', () => {
+    expect(activeStage([A, stage('D', '2026-10-01', '2026-11-10')], '2026-11-18')?.id).toBe('A');
+  });
+});
