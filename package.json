@@ -12,7 +12,8 @@
     "typecheck": "tsc --noEmit",
     "db:push": "supabase db push --db-url $SUPABASE_DB_URL",
     "seed:build": "tsx scripts/build-food-seed.ts",
-    "dev:user": "tsx scripts/create-dev-user.ts"
+    "dev:user": "tsx scripts/create-dev-user.ts",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.7",
@@ -23,6 +24,7 @@
     "zod": "^4.6.7"
   },
   "devDependencies": {
+    "@playwright/test": "^1.65.1",
     "@tailwindcss/turbopack": "4.3.3",
     "@types/node": "^22.20.5",
     "@types/react": "^19",
