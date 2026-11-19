@@ -28,6 +28,7 @@ describe('rowToStage', () => {
       goal: 'cut',
       mode: 'manual',
       notes: null,
+      created_at: '2026-11-18T10:00:00Z',
       protein_g_per_kg: '2.2' as unknown as number,
       carbs_training_g_per_kg: 1.8,
       carbs_rest_g_per_kg: 1.5,

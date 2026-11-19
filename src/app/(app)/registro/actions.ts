@@ -1,49 +1,23 @@
 'use server';
 
-import { macrosForGrams, normalizeForSearch, resolveOverrides } from '@/domain/foods';
+import { macrosForGrams } from '@/domain/foods';
 import { todayIn } from '@/domain/dates';
-import type { Food } from '@/domain/types';
 import { requireUser } from '@/lib/auth';
-import { FOOD_COLUMNS, rowToFood, type FoodRow } from '@/lib/mappers';
+import { searchFoodsFor, type FoodOption } from '@/lib/food-search';
+import { FOOD_COLUMNS, rowToFood } from '@/lib/mappers';
 import { createServerSupabase } from '@/lib/supabase/server';
 import { fieldErrors } from '@/lib/validation';
 import { buildMealLog } from './meal-log';
 import { logMealSchema, updateMealGramsSchema, type LogMealInput } from './schema';
 
-export type Measure = { label: string; grams: number };
-export type FoodOption = Food & { measures: Measure[] };
+export type { FoodOption, Measure } from '@/lib/food-search';
 export type ActionResult = { ok: true } | { ok: false; errors: Record<string, string> };
 
 const fail = (message: string): ActionResult => ({ ok: false, errors: { _: message } });
 
-/** Escapa los comodines de LIKE en el texto que escribe el usuario. */
-function escapeLike(s: string): string {
-  return s.replace(/[\\%_]/g, (c) => `\\${c}`);
-}
-
 export async function searchFoods(query: string): Promise<FoodOption[]> {
   const { user } = await requireUser();
-  const q = normalizeForSearch(query);
-  if (q.length < 2) return [];
-  const supabase = await createServerSupabase();
-  const { data, error } = await supabase
-    .from('foods')
-    .select(`${FOOD_COLUMNS}, household_measures(label, grams)`)
-    .ilike('search_name', `%${escapeLike(q)}%`)
-    .order('name')
-    .limit(40);
-  if (error || !data) return [];
-
-  const rows = data as (FoodRow & { household_measures: { label: string; grams: number }[] })[];
-  const measuresById = new Map(rows.map((r) => [r.id, r.household_measures.map((m) => ({ label: m.label, grams: Number(m.grams) }))]));
-  const options: FoodOption[] = rows.map((r) => {
-    const food = rowToFood(r);
-    const own = measuresById.get(r.id) ?? [];
-    // Una copia personal sin medidas propias hereda las del alimento global que reemplaza.
-    const inherited = own.length === 0 && food.overridesFoodId ? (measuresById.get(food.overridesFoodId) ?? []) : [];
-    return { ...food, measures: own.length ? own : inherited };
-  });
-  return resolveOverrides(options, user.id).slice(0, 20);
+  return searchFoodsFor(await createServerSupabase(), user.id, query);
 }
 
 export async function logMeal(input: LogMealInput): Promise<ActionResult> {

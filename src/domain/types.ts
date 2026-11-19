@@ -23,6 +23,8 @@ export interface Stage extends StageRules {
   goal: Goal;
   mode: 'auto' | 'manual';
   notes: string | null;
+  /** Momento de creación (ISO); desempata etapas que empiezan el mismo día. */
+  createdAt: string;
 }
 
 export type Intensity = 'low' | 'medium' | 'high';

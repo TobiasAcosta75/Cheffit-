@@ -34,9 +34,14 @@ export function autoStageRules(input: {
   };
 }
 
-/** Etapa vigente en la fecha: la de inicio más reciente entre las que cubren esa fecha. */
+/**
+ * Etapa vigente en la fecha: la de inicio más reciente entre las que cubren esa fecha;
+ * si dos empiezan el mismo día, gana la creada más tarde.
+ */
 export function activeStage(stages: Stage[], date: ISODate): Stage | null {
   const current = stages.filter((s) => s.startDate <= date && (s.endDate === null || s.endDate >= date));
   if (current.length === 0) return null;
-  return current.reduce((a, b) => (b.startDate > a.startDate ? b : a));
+  const newer = (a: Stage, b: Stage) =>
+    b.startDate > a.startDate || (b.startDate === a.startDate && Date.parse(b.createdAt) > Date.parse(a.createdAt));
+  return current.reduce((a, b) => (newer(a, b) ? b : a));
 }

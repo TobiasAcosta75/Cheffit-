@@ -4,7 +4,7 @@ import type { Database } from './supabase/database.types';
 type Tables = Database['public']['Tables'];
 type StageRow = Pick<
   Tables['stages']['Row'],
-  'id' | 'name' | 'start_date' | 'end_date' | 'goal' | 'mode' | 'notes' | 'protein_g_per_kg' | 'carbs_training_g_per_kg' | 'carbs_rest_g_per_kg' | 'fat_g_per_kg'
+  'id' | 'name' | 'start_date' | 'end_date' | 'goal' | 'mode' | 'notes' | 'created_at' | 'protein_g_per_kg' | 'carbs_training_g_per_kg' | 'carbs_rest_g_per_kg' | 'fat_g_per_kg'
 >;
 type WeekRow = Pick<Tables['training_week']['Row'], 'weekday' | 'trains' | 'time' | 'intensity'>;
 type OverrideRow = Pick<Tables['training_overrides']['Row'], 'date' | 'trains' | 'time' | 'intensity'>;
@@ -41,6 +41,7 @@ export function rowToStage(r: StageRow): Stage {
     goal: r.goal as Goal,
     mode: r.mode as 'auto' | 'manual',
     notes: r.notes,
+    createdAt: r.created_at,
     proteinGPerKg: Number(r.protein_g_per_kg),
     carbsTrainingGPerKg: Number(r.carbs_training_g_per_kg),
     carbsRestGPerKg: Number(r.carbs_rest_g_per_kg),

@@ -24,9 +24,9 @@ describe('autoStageRules', () => {
   });
 });
 
-function stage(id: string, startDate: string, endDate: string | null = null): Stage {
+function stage(id: string, startDate: string, endDate: string | null = null, createdAt = `${startDate}T12:00:00Z`): Stage {
   return {
-    id, name: id, startDate, endDate, goal: 'cut', mode: 'manual', notes: null,
+    id, name: id, startDate, endDate, goal: 'cut', mode: 'manual', notes: null, createdAt,
     proteinGPerKg: 2.2, carbsTrainingGPerKg: 1.8, carbsRestGPerKg: 1.5, fatGPerKg: 1,
   };
 }
@@ -41,6 +41,12 @@ describe('activeStage', () => {
   });
   test('ninguna vigente', () => {
     expect(activeStage([C], '2026-11-18')).toBeNull();
+  });
+  test('con el mismo inicio gana la creada más tarde, sin importar el orden', () => {
+    const onboarding = stage('ONB', '2026-11-18', null, '2026-11-18T10:00:00Z');
+    const nutri = stage('NUTRI', '2026-11-18', null, '2026-11-18T15:00:00Z');
+    expect(activeStage([onboarding, nutri], '2026-11-18')?.id).toBe('NUTRI');
+    expect(activeStage([nutri, onboarding], '2026-11-18')?.id).toBe('NUTRI');
   });
   test('etapa cerrada no cuenta', () => {
     expect(activeStage([A, stage('D', '2026-10-01', '2026-11-10')], '2026-11-18')?.id).toBe('A');
