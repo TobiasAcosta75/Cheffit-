@@ -24,3 +24,36 @@ export interface Stage extends StageRules {
   mode: 'auto' | 'manual';
   notes: string | null;
 }
+
+export type Intensity = 'low' | 'medium' | 'high';
+
+export interface TrainingDay {
+  trains: boolean;
+  /** Hora local 'HH:MM' o null si no entrena. */
+  time: string | null;
+  intensity: Intensity | null;
+}
+
+export type TrainingWeek = Record<Weekday, TrainingDay>;
+
+export interface TrainingOverride extends TrainingDay {
+  date: ISODate;
+}
+
+export type DayType = 'training' | 'rest';
+
+export interface Macros {
+  proteinG: number;
+  carbsG: number;
+  fatG: number;
+  kcal: number;
+}
+
+/** Valores nutricionales por 100 g. */
+export interface FoodPer100 {
+  kcal: number;
+  protein: number;
+  carbs: number;
+  fat: number;
+  fiber: number;
+}
