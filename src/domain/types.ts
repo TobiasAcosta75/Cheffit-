@@ -57,3 +57,14 @@ export interface FoodPer100 {
   fat: number;
   fiber: number;
 }
+
+export type FoodSource = 'usda' | 'argenfoods' | 'off' | 'manual' | 'user';
+
+export interface Food extends FoodPer100 {
+  id: string;
+  ownerId: string | null;
+  overridesFoodId: string | null;
+  name: string;
+  category: string;
+  source: FoodSource;
+}
