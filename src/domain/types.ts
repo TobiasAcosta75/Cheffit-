@@ -58,6 +58,9 @@ export interface FoodPer100 {
   fiber: number;
 }
 
+export const SLOTS = ['breakfast', 'lunch', 'snack', 'dinner', 'pre_workout', 'post_workout', 'extra'] as const;
+export type Slot = (typeof SLOTS)[number];
+
 export type FoodSource = 'usda' | 'argenfoods' | 'off' | 'manual' | 'user';
 
 export interface Food extends FoodPer100 {

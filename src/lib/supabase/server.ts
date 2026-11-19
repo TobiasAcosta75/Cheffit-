@@ -1,9 +1,15 @@
 import { createServerClient } from '@supabase/ssr';
 import { cookies } from 'next/headers';
+import { connection } from 'next/server';
 import type { Database } from './database.types';
 
-/** Cliente de Supabase para Server Components, Server Actions y Route Handlers. */
+/**
+ * Cliente de Supabase para Server Components, Server Actions y Route Handlers.
+ * `connection()` marca el render como de request: la sesión se valida contra la hora actual,
+ * que con Cache Components no puede leerse durante el prerender.
+ */
 export async function createServerSupabase() {
+  await connection();
   const cookieStore = await cookies();
   return createServerClient<Database>(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!, {
     cookies: {
